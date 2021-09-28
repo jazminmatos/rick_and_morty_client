@@ -1,33 +1,36 @@
 import React, { Component } from 'react';
 
-class FormContainer extends Component {
-    // state = {
+import Form from '../components/Form';
 
-    // }
+class FormContainer extends Component {
+    state = {
+        name: ''
+    }
 
     // componentDidMount() {
 
     // }
 
-    // handleChange = e => {
-
-    // }
+    handleChange = e => {
+        const { name, value } = e.target
+        
+        this.setState({
+            [name]: value
+        })     
+    }
 
     // handleSubmit = e => {
+        // e.preventDefault()
 
+        // this.setState({
+        //     name: ''
+        // })
     // }
 
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <br />
-                    <label>Name:</label>
-                    <br />
-                    <input type='text' value={this.state.name} onChange={this.handleChange} name="name"/>
-                    <br /><br />
-                    <input type='submit' value="Submit"/>
-                </form>
+                <Form onSubmit={this.handleSubmit} value={this.state} onChange={this.handleChange}/>
             </div>
         );
     }
