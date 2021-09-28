@@ -1,0 +1,21 @@
+.navbar {
+  background: #f7f7ff;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  padding: 0 5rem;
+  cursor: pointer;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-top: -1rem;
+  width: 100%;
+}
+
+.navbarText {
+  color: #191716;
+  text-decoration: none;
+}

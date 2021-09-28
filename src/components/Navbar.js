@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
-// import '../css/NavBar.css'
+import '../css/NavBar.css'
 
 const NavBar = () => {
     return (
@@ -10,16 +10,12 @@ const NavBar = () => {
                 Home
             </NavLink>
 
-            <NavLink exact activeStyle={{color: '#009fb7'}} to='/about' className="navbarText">
-                About
+            <NavLink exact activeStyle={{color: '#009fb7'}} to='/episodes' className="navbarText">
+                Episodes
             </NavLink>
 
-            <NavLink exact activeStyle={{color: '#009fb7'}} to='/profile' className="navbarText">
-                Profile
-            </NavLink>
-
-            <NavLink exact activeStyle={{color: '#009fb7'}} to='/store' className="navbarText">
-                Store
+            <NavLink exact activeStyle={{color: '#009fb7'}} to='/favorites' className="navbarText">
+                Favorites
             </NavLink>
         </div>
     );
