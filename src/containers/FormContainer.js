@@ -21,6 +21,8 @@ class FormContainer extends Component {
         this.setState({
             name: ''
         })
+        
+        // Check Redux store to see if it exists already, if not, do a fetch request
     }
 
     render() {

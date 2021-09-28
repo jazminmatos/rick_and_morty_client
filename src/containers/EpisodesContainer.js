@@ -8,12 +8,13 @@ class EpisodesContainer extends Component {
     }
     
     componentDidMount() {
-
+        
     }
     
     render() {
         return (
             <div>
+                Hello from Episodes Container
                 <EpisodesList />
             </div>
         );
