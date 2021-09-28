@@ -35,7 +35,7 @@ class Episodes extends Component {
         return (
             <div>
                 <FormContainer episodeName={this.episodeNameQuery}/>
-                <EpisodesContainer episodeName={this.state.episodeName}/>
+                {this.state.episodeName === '' ? "No episodes listed." : <EpisodesContainer episodeName={this.state.episodeName}/>}
             </div>
         );
     }

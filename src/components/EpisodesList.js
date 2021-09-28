@@ -3,10 +3,18 @@ import React from 'react';
 const EpisodesList = (props) => {
     // map over episode information to get it in a proper format
     // Create a template below of what it will look like
-    // debugger
+    const { id, name, air_date, episode, characters, url } = props.episode
+    // console.log("EpisodesList", props.episode)
     return (
         <div>
-            EpisodeName: {props.episode}
+            Episode Name: {name}
+            <br />
+            Episode Number: {id}
+            <br />
+            Air Date: {air_date}
+            <br />
+            Season: {episode}
+            <br />
         </div>
     );
 }
