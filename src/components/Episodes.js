@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Episodes = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+class Episodes extends Component {
+    render() {
+        return (
+            <div>
+                
+            </div>
+        );
+    }
 }
 
 export default Episodes;
