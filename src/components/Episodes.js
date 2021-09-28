@@ -7,6 +7,16 @@ import { fetchEpisodes } from '../actions/EpisodeActions'
 
 
 class Episodes extends Component {
+    state = {
+        episodeName: ''
+    }
+
+    episodeNameQuery = (argument) => {
+        this.setState({
+            episodeName: argument
+        })
+    }
+    
     componentDidMount() {
         const AllEpisodesParameters = () => {
             const length = 41
@@ -17,15 +27,15 @@ class Episodes extends Component {
             const rangeString = numArray.join()
             return rangeString
         }
-        
+
         this.props.fetchEpisodes(AllEpisodesParameters())
     }
 
     render() {
         return (
             <div>
-                <FormContainer />
-                <EpisodesContainer />
+                <FormContainer episodeName={this.episodeNameQuery}/>
+                <EpisodesContainer episodeName={this.state.episodeName}/>
             </div>
         );
     }

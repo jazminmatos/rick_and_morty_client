@@ -1,7 +1,6 @@
 export const episodesReducer = (state = {episodes: [], loading: false}, action) => {
     switch(action.type) {
         case 'LOADING_EPISODES':
-            debugger
             return {
                 ...state,
                 episodes: [...state.episodes],

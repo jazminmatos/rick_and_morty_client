@@ -2,19 +2,12 @@ import React, { Component } from 'react';
 
 import EpisodesList from '../components/EpisodesList';
 
-class EpisodesContainer extends Component {
-    state = {
-        isLoading: true
-    }
-    
-    componentDidMount() {
-        
-    }
-    
+class EpisodesContainer extends Component {    
     render() {
+        // debugger
         return (
             <div>
-                Hello from Episodes Container
+                EpisodeName: {this.props.episodeName}
                 <EpisodesList />
             </div>
         );

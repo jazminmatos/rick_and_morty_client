@@ -17,21 +17,38 @@ class FormContainer extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-
-        this.setState({
-            name: ''
-        })
         
-        // Check Redux store to see if it exists already, if not, do a fetch request
+        this.props.episodeName(this.state.name)
+
+        // this.setState({
+        //     name: ''
+        // })
+        
+        // Check Redux store to see if episode exists
+        // send id number back to grand parent (Episodes)
     }
 
     render() {
         return (
             <div>
-                <Form onSubmit={this.handleSubmit} value={this.state} onChange={this.handleChange}/>
+                {/* <Form onSubmit={this.handleSubmit} state={this.state} onChange={this.handleChange}/>  */}
+                <form onSubmit={this.handleSubmit}>
+                    <br />
+                    <label>Episode Name:</label>
+                    <input type='text' value={this.state.name} onChange={this.handleChange} name="name"/>
+                    <br /><br />
+                    <input type='submit' value="Submit"/>
+                </form>
             </div>
-        );
+        )
     }
 }
 
 export default FormContainer;
+
+ // debugger
+        // return (
+        //     <div>
+        //         <Form onSubmit={this.handleSubmit} value={this.state.name} onChange={this.handleChange}/>
+        //     </div>
+        // );
