@@ -1,12 +1,12 @@
 import React from 'react';
 
-const EpisodesList = () => {
+const EpisodesList = (props) => {
     // map over episode information to get it in a proper format
     // Create a template below of what it will look like
-
+    // debugger
     return (
         <div>
-            Hello from EpisodesList
+            EpisodeName: {props.episode}
         </div>
     );
 }

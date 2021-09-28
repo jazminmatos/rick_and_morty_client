@@ -20,9 +20,9 @@ class FormContainer extends Component {
         
         this.props.episodeName(this.state.name)
 
-        // this.setState({
-        //     name: ''
-        // })
+        this.setState({
+            name: ''
+        })
         
         // Check Redux store to see if episode exists
         // send id number back to grand parent (Episodes)
@@ -45,10 +45,3 @@ class FormContainer extends Component {
 }
 
 export default FormContainer;
-
- // debugger
-        // return (
-        //     <div>
-        //         <Form onSubmit={this.handleSubmit} value={this.state.name} onChange={this.handleChange}/>
-        //     </div>
-        // );
