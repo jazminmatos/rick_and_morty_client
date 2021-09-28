@@ -13,8 +13,8 @@ const Router = () => {
             <br /><br /><br />
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/about' component={Episodes} />
-                <Route exact path='/profile' component={Favorites} />
+                <Route exact path='/episodes' component={Episodes} />
+                <Route exact path='/favorites' component={Favorites} />
             </Switch>
         </>
     );

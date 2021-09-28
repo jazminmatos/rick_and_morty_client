@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Episodes extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+import FormContainer from '../containers/FormContainer';
+
+const Episodes = () => {
+    return (
+        <div>
+        <br /><br /><br /><br />
+        Hello
+            <FormContainer />
+        </div>
+    );
 }
 
 export default Episodes;
