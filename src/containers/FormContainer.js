@@ -7,10 +7,6 @@ class FormContainer extends Component {
         name: ''
     }
 
-    // componentDidMount() {
-
-    // }
-
     handleChange = e => {
         const { name, value } = e.target
         
@@ -19,13 +15,13 @@ class FormContainer extends Component {
         })     
     }
 
-    // handleSubmit = e => {
-        // e.preventDefault()
+    handleSubmit = e => {
+        e.preventDefault()
 
-        // this.setState({
-        //     name: ''
-        // })
-    // }
+        this.setState({
+            name: ''
+        })
+    }
 
     render() {
         return (

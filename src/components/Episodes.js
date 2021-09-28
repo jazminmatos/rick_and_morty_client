@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import FormContainer from '../containers/FormContainer';
+import EpisodesContainer from '../containers/EpisodesContainer';
 
-const Episodes = () => {
-    return (
-        <div>
-            <FormContainer />
-        </div>
-    );
+
+class Episodes extends Component {
+    
+    render() {
+        return (
+            <div>
+                <FormContainer />
+                <EpisodesContainer />
+            </div>
+        );
+    }
 }
 
 export default Episodes;
+
