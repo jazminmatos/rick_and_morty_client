@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../components/Button';
-import { addFavorite } from '../actions/EpisodeActions'
+import { addFavorite, removeFavorite } from '../actions/EpisodeActions'
 
 class ButtonContainer extends Component {
     state = {
@@ -33,5 +33,5 @@ class ButtonContainer extends Component {
     }
 }
 
-export default connect(null, { addFavorite })(ButtonContainer);
+export default connect(null, { addFavorite, removeFavorite })(ButtonContainer);
 
