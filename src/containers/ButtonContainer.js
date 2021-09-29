@@ -4,26 +4,21 @@ import { connect } from 'react-redux';
 import Button from '../components/Button';
 import { addFavorite, removeFavorite } from '../actions/EpisodeActions'
 
-class ButtonContainer extends Component {
-    state = {
-        // false === it has not been favorited yet
-        favoriteToggle: false
-        // ADD LOGIC THAT CHECKS WHETHER episode ALREADY EXISTS IN FAVORITES
-        // IF IN FAVORITES, STATE SHOULD BE TRUE
-    }
-    
-    handleClick = e => {     
-        // console.log(this.props.selectEpisode) 
-        this.state.favoriteToggle ? this.props.removeFavorite(this.props.selectEpisode) : this.props.addFavorite(this.props.selectEpisode)
 
-        this.setState({
-            favoriteToggle: !this.state.favoriteToggle
-        })
+class ButtonContainer extends Component {
+    findFavorites = () => {
+        const match = this.props.favorites.find(epi => epi.id === this.props.selectEpisode.id)
+        return match 
+    }
+
+    handleClick = e => {     
+        // debugger
+        // const findFavorites = this.props.favorites.find(epi => epi.id === this.props.selectEpisode.id)
+        this.findFavorites() ? this.props.removeFavorite(this.props.selectEpisode) : this.props.addFavorite(this.props.selectEpisode)
     }
     
     render() {
-        const findFavorite = this.props.favorites.find(epi => epi.id === this.props.selectEpisode.id)
-        const buttonName = findFavorite ? "Remove From Favorites 💔" : "Add To Favorites ❤️" 
+        const buttonName = this.findFavorites() ? "Remove From Favorites 💔" : "Add To Favorites ❤️" 
         
         return (
             <div>
