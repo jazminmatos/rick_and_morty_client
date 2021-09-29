@@ -7,10 +7,16 @@ export const fetchEpisodes = (parameters) => {
     }
 }
 
-export const addFavorite = () => {
+export const addFavorite = (selectEpisode) => {
+    const configObj = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(selectEpisode)
+    }
+    
     return dispatch => {
         dispatch({ type: 'LOADING_EPISODES' })
-        fetch('http://localhost:3000/favorite_episodes')
+        fetch('http://localhost:3000/favorite_episodes', configObj)
         .then(resp => resp.json())
         .then()
     }

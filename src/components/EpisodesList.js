@@ -16,7 +16,7 @@ const EpisodesList = (props) => {
             Air Date: {air_date}
             <br />
             Season: {episode}
-            <ButtonContainer />
+            <ButtonContainer selectEpisode={name}/>
             <br /><br />
         </div>
     );
