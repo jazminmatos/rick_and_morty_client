@@ -16,3 +16,5 @@ export const episodesReducer = (state = {episodes: [], loading: false}, action) 
             return state
     }
 }
+
+// should add a favorites
