@@ -31,12 +31,10 @@ class FormContainer extends Component {
     render() {
         return (
             <div>
-                {/* <Form onSubmit={this.handleSubmit} state={this.state} onChange={this.handleChange}/>  */}
                 <form onSubmit={this.handleSubmit}>
                     <br />
                     <label>Episode Name:</label>
                     <input type='text' value={this.state.name} onChange={this.handleChange} name="name"/>
-                    <br /><br />
                     <input type='submit' value="Submit"/>
                 </form>
             </div>

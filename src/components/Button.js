@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Button = () => {
+const Button = (props) => {
     return (
         <div>
-            <button>Add to Favorites ♥️</button>
+            <button onClick={props.onClick}>{props.buttonName}</button>
         </div>
     );
 }
