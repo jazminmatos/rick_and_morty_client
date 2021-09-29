@@ -26,6 +26,3 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(EpisodesContainer);
 
-
-// console.log("EpisodesContainer:", episodeFromForm)
-// console.log("EpisodesContainer:", allEpisodes)

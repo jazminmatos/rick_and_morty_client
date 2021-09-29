@@ -22,7 +22,8 @@ class ButtonContainer extends Component {
     }
     
     render() {
-        const buttonName = this.state.favoriteToggle ? "Remove From Favorites 💔" : "Add To Favorites ❤️" 
+        const findFavorite = this.props.favorites.find(epi => epi.id === this.props.selectEpisode.id)
+        const buttonName = findFavorite ? "Remove From Favorites 💔" : "Add To Favorites ❤️" 
         
         return (
             <div>
