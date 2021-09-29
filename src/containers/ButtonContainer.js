@@ -4,20 +4,21 @@ import Button from '../components/Button';
 
 class ButtonContainer extends Component {
     state = {
+        // false === it has not been favorited yet
         favoriteToggle: false
     }
     
     handleClick = e => {
         // onClick, send episode data to database
-        // send a POST fetch request
-        // on successful request, disable button
+        // if favoriteToggle === false, send a POST fetch request
+        // if favoriteToggle === true, send a delete fetch request
         this.setState({
             favoriteToggle: !this.state.favoriteToggle
         })
     }
     
     render() {
-        const buttonName = !this.state.favoriteToggle ? "Add To Favorites ♥️" : "Remove From Favorites 💔"
+        const buttonName = this.state.favoriteToggle ? "Remove From Favorites 💔" : "Add To Favorites ❤️" 
         
         return (
             <div>
