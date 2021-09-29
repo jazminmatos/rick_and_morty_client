@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Button from '../components/Button';
+import { addFavorite } from '../actions/EpisodeActions'
 
 class ButtonContainer extends Component {
     state = {
@@ -11,7 +13,10 @@ class ButtonContainer extends Component {
     handleClick = e => {
         // onClick, send episode data to database
         // if favoriteToggle === false, send a POST fetch request to Rails app
+        this.props.addFavorite(this.props.selectEpisode)
         // if favoriteToggle === true, send a delete fetch request to Rails app
+        
+
         this.setState({
             favoriteToggle: !this.state.favoriteToggle
         })
@@ -28,5 +33,5 @@ class ButtonContainer extends Component {
     }
 }
 
-export default ButtonContainer;
+export default connect(null, { addFavorite })(ButtonContainer);
 
