@@ -14,9 +14,21 @@ export const episodesReducer = (state = {episodes: [], loading: false, favorites
                 loading: false,
                 favorites: [...state.favorites]
             }
+        case 'ADD_FAVORITE':
+            return {
+                ...state,
+                episodes: [...state.episodes],
+                loading: false,
+                favorites: [] // NEED TO UPDATE THIS
+            }
+        case 'REMOVE_FAVORITE':
+            return {
+                ...state,
+                episodes: [...state.episodes],
+                loading: false,
+                favorites: [] // NEED TO UPDATE THIS
+            }
         default: 
             return state
     }
 }
-
-// should add a favorites
