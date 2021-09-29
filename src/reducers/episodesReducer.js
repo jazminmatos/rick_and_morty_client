@@ -1,16 +1,18 @@
-export const episodesReducer = (state = {episodes: [], loading: false}, action) => {
+export const episodesReducer = (state = {episodes: [], loading: false, favorites: []}, action) => {
     switch(action.type) {
         case 'LOADING_EPISODES':
             return {
                 ...state,
                 episodes: [...state.episodes],
-                loading: true
+                loading: true,
+                favorites: [...state.favorites]
             }
         case 'FETCH_EPISODES':
             return {
                 ...state, 
                 episodes: action.payload,
-                loading: false
+                loading: false,
+                favorites: [...state.favorites]
             }
         default: 
             return state

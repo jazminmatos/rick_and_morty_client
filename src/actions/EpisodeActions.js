@@ -7,6 +7,7 @@ export const fetchEpisodes = (parameters) => {
     }
 }
 
+// figure out how to 
 export const addFavorite = (selectEpisode) => {
     const configObj = {
         method: 'POST',
@@ -18,11 +19,12 @@ export const addFavorite = (selectEpisode) => {
         dispatch({ type: 'LOADING_EPISODES' })
         fetch('http://localhost:3000/favorite_episodes', configObj)
         .then(resp => resp.json())
-        .then()
+        .then(episode => dispatch({ type: 'ADD_FAVORITE', payload: episode}))
+
     }
 } 
 
-export const removeFavorite = () => {
+export const removeFavorite = (selectEpisode) => {
     return dispatch => {
         dispatch({ type: 'LOADING_EPISODES' })
         fetch('http://localhost:3000/favorite_episodes')
