@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from './Button';
+
 const EpisodesList = (props) => {
     // map over episode information to get it in a proper format
     // Create a template below of what it will look like
@@ -14,6 +16,7 @@ const EpisodesList = (props) => {
             Air Date: {air_date}
             <br />
             Season: {episode}
+            <Button />
             <br /><br />
         </div>
     );
