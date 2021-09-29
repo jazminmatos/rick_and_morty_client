@@ -33,8 +33,8 @@ export const removeFavorite = (selectEpisode) => {
     return dispatch => {
         dispatch({ type: 'LOADING_EPISODES' })
         fetch('http://localhost:3000/favorite_episodes/' + selectEpisode.id, configObj)
-        .then(resp => resp.json())
-        .then(episode => console.log(episode))
+        .then(resp => dispatch({ type: 'REMOVE_FAVORITE', payload: selectEpisode}))
+
         // dispatch({ type: 'REMOVE_FAVORITE', payload: episode})
     }
 }

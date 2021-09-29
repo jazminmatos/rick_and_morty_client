@@ -8,6 +8,8 @@ class ButtonContainer extends Component {
     state = {
         // false === it has not been favorited yet
         favoriteToggle: false
+        // ADD LOGIC THAT CHECKS WHETHER episode ALREADY EXISTS IN FAVORITES
+        // IF IN FAVORITES, STATE SHOULD BE TRUE
     }
     
     handleClick = e => {

@@ -17,10 +17,6 @@ const EpisodesList = (props) => {
             <br />
             Season: {episode}
             <ButtonContainer selectEpisode={props.episode}/>
-            {/* 
-                ADD LOGIC THAT CHECKS WHETHER IT ALREADY EXISTS IN FAVORITES
-                IF IN FAVORITES, STATE SHOULD BE TRUE
-             */}
             <br /><br />
         </div>
     );
