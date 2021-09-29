@@ -1,31 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../components/Button';
 import { addFavorite, removeFavorite } from '../actions/EpisodeActions'
 
+const ButtonContainer = (props) => {
+    const findFavorites = props.favorites.find(epi => epi.id === props.selectEpisode.id)
 
-class ButtonContainer extends Component {
-    findFavorites = () => {
-        const match = this.props.favorites.find(epi => epi.id === this.props.selectEpisode.id)
-        return match 
-    }
-
-    handleClick = e => {     
-        // debugger
-        // const findFavorites = this.props.favorites.find(epi => epi.id === this.props.selectEpisode.id)
-        this.findFavorites() ? this.props.removeFavorite(this.props.selectEpisode) : this.props.addFavorite(this.props.selectEpisode)
+    const handleClick = e => {     
+        findFavorites ? props.removeFavorite(props.selectEpisode) : props.addFavorite(props.selectEpisode)
     }
     
-    render() {
-        const buttonName = this.findFavorites() ? "Remove From Favorites 💔" : "Add To Favorites ❤️" 
-        
-        return (
-            <div>
-                <Button onClick={this.handleClick} buttonName={buttonName}/>
-            </div>
-        );
-    }
+    const buttonName = findFavorites ? "Remove From Favorites 💔" : "Add To Favorites ❤️"
+    
+    return (
+        <div>
+            <Button onClick={handleClick} buttonName={buttonName}/>
+        </div>
+    );
 }
 
 const mapStateToProps = state => {
@@ -35,4 +27,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { addFavorite, removeFavorite })(ButtonContainer);
+
 
