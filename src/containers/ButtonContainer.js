@@ -32,5 +32,11 @@ class ButtonContainer extends Component {
     }
 }
 
-export default connect(null, { addFavorite, removeFavorite })(ButtonContainer);
+const mapStateToProps = state => {
+    return {
+        favorites: state.episodes.favorites
+    }
+}
+
+export default connect(mapStateToProps, { addFavorite, removeFavorite })(ButtonContainer);
 

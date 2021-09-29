@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class Favorites extends Component {
-    componentDidMount() {
-        // fetch favorites from Rails app
+import EpisodesList from './EpisodesList';
 
-        // Maybe give the episode a notes section so that I can save notes based on episodes
-    }
-    
-    render() {
-        return (
-            <div>
-                You have no favorites yet...what are you waiting for?
-            </div>
-        );
+const Favorites = (props) => {
+    const allFavorites = props.favorites.map(epi => <EpisodesList key={epi.id} episode={epi} />)
+    debugger
+    return (
+        <div>
+            {props.favorites.length === 0 ? "You have no favorites yet...what are you waiting for?" : <div>{allFavorites}</div>}
+            
+        </div>
+    );
+}
+
+const mapStateToProps = state => {
+    return {
+        favorites: state.episodes.favorites
     }
 }
 
-export default Favorites;
-
+export default connect(mapStateToProps)(Favorites);
