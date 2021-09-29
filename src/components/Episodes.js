@@ -11,13 +11,15 @@ class Episodes extends Component {
         episodeName: ''
     }
 
-    episodeNameQuery = (argument) => {
+    // callback method to transfer data from FormConatiner component to sibling - EpisodeContainer
+    episodeNameQuery = (episodeFromForm) => {
         this.setState({
-            episodeName: argument
+            episodeName: episodeFromForm
         })
     }
     
     componentDidMount() {
+        // There are a total of 41 Rick and Morty episodes
         const AllEpisodesParameters = () => {
             const length = 41
             let numArray = []
@@ -35,7 +37,8 @@ class Episodes extends Component {
         return (
             <div>
                 <FormContainer episodeName={this.episodeNameQuery}/>
-                {this.state.episodeName === '' ? "No episodes listed." : <EpisodesContainer episodeName={this.state.episodeName}/>}
+                <EpisodesContainer episodeName={this.state.episodeName}/>
+                {/* // {this.state.episodeName === '' ? "No episodes listed." : <EpisodesContainer episodeName={this.state.episodeName}/>} */}
             </div>
         );
     }

@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 
 import EpisodesList from '../components/EpisodesList';
 
-class EpisodesContainer extends Component {    
+class EpisodesContainer extends Component {       
     render() {
-        // debugger
-        const episodeInfo = this.props.episodes.find(epi => epi.name === this.props.episodeName)
-        console.log("EpisodesContainer:", episodeInfo)
+        const allEpisodes = this.props.allEpisodes.map(epi => <EpisodesList episode={epi} />)
+        const episodeFromForm = this.props.allEpisodes.find(epi => epi.name.toLowerCase() === this.props.episodeName.toLowerCase())
 
         return (
             <div>
-                EpisodeName: {this.props.episodeName}
-                <EpisodesList episode={episodeInfo}/>
+                {this.props.episodeName === '' ? "Submit the form to search for an episode or look through all the episodes below:" : <EpisodesList episode={episodeFromForm} />}
+                ___________________________________________________
+                <br /><br />
+                {allEpisodes}
             </div>
         );
     }
@@ -20,8 +21,13 @@ class EpisodesContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        episodes: state.episodes.episodes
+        allEpisodes: state.episodes.episodes
     }
 }
 
 export default connect(mapStateToProps)(EpisodesContainer);
+
+
+
+    // console.log("EpisodesContainer:", episodeFromForm)
+    // console.log("EpisodesContainer:", allEpisodes)
