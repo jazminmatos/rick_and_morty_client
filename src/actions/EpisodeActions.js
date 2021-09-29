@@ -20,15 +20,21 @@ export const addFavorite = (selectEpisode) => {
         fetch('http://localhost:3000/favorite_episodes', configObj)
         .then(resp => resp.json())
         .then(episode => dispatch({ type: 'ADD_FAVORITE', payload: episode}))
-
     }
 } 
 
 export const removeFavorite = (selectEpisode) => {
+    const configObj = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(selectEpisode)
+    }
+    
     return dispatch => {
         dispatch({ type: 'LOADING_EPISODES' })
-        fetch('http://localhost:3000/favorite_episodes')
+        fetch('http://localhost:3000/favorite_episodes/' + selectEpisode.id, configObj)
         .then(resp => resp.json())
-        .then()
+        .then(episode => console.log(episode))
+        // dispatch({ type: 'REMOVE_FAVORITE', payload: episode})
     }
 }

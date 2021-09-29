@@ -19,7 +19,7 @@ export const episodesReducer = (state = {episodes: [], loading: false, favorites
                 ...state,
                 episodes: [...state.episodes],
                 loading: false,
-                favorites: [] // NEED TO UPDATE THIS
+                favorites: [...state.favorites, action.payload]
             }
         case 'REMOVE_FAVORITE':
             return {

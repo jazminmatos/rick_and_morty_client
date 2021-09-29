@@ -13,10 +13,9 @@ class ButtonContainer extends Component {
     handleClick = e => {
         // onClick, send episode data to database
         // if favoriteToggle === false, send a POST fetch request to Rails app
-        this.props.addFavorite(this.props.selectEpisode)
-        // if favoriteToggle === true, send a delete fetch request to Rails app
-        this.props.removeFavorite(this.props.selectEpisode)
-        
+        // if favoriteToggle === true, send a delete fetch request to Rails app       
+        console.log(this.props.selectEpisode) 
+        this.state.favoriteToggle ? this.props.removeFavorite(this.props.selectEpisode) : this.props.addFavorite(this.props.selectEpisode)
 
         this.setState({
             favoriteToggle: !this.state.favoriteToggle

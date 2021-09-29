@@ -16,7 +16,11 @@ const EpisodesList = (props) => {
             Air Date: {air_date}
             <br />
             Season: {episode}
-            <ButtonContainer selectEpisode={name}/>
+            <ButtonContainer selectEpisode={props.episode}/>
+            {/* 
+                ADD LOGIC THAT CHECKS WHETHER IT ALREADY EXISTS IN FAVORITES
+                IF IN FAVORITES, STATE SHOULD BE TRUE
+             */}
             <br /><br />
         </div>
     );
