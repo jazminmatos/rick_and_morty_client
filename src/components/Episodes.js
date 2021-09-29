@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import FormContainer from '../containers/FormContainer';
 import EpisodesContainer from '../containers/EpisodesContainer';
 import { connect } from 'react-redux';
-import { fetchEpisodes } from '../actions/EpisodeActions'
+import { fetchEpisodes, fetchFavorites } from '../actions/EpisodeActions'
 
 
 class Episodes extends Component {
@@ -31,6 +31,7 @@ class Episodes extends Component {
         }
 
         this.props.fetchEpisodes(AllEpisodesParameters())
+        this.props.fetchFavorites()
     }
 
     render() {
@@ -43,5 +44,5 @@ class Episodes extends Component {
     }
 }
 
-export default connect(null, { fetchEpisodes })(Episodes);
+export default connect(null, { fetchEpisodes, fetchFavorites })(Episodes);
 

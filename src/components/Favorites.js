@@ -5,7 +5,6 @@ import EpisodesList from './EpisodesList';
 
 const Favorites = (props) => {
     const allFavorites = props.favorites.map(epi => <EpisodesList key={epi.id} episode={epi} />)
-    debugger
     return (
         <div>
             {props.favorites.length === 0 ? "You have no favorites yet...what are you waiting for?" : <div>{allFavorites}</div>}
@@ -21,3 +20,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Favorites);
+
+// need to add componentDidMount to fetch from Rails backend

@@ -31,6 +31,13 @@ export const episodesReducer = (state = {episodes: [], loading: false, favorites
                 loading: false,
                 favorites: [...state.favorites.slice(0, idx), ...state.favorites.slice(idx+1)] // NEED TO UPDATE THIS
             }
+        case 'FETCH_FAVORITES':
+            return {
+                ...state,
+                episodes: [...state.episodes],
+                loading: false,
+                favorites: action.payload
+            }
         default: 
             return state
     }
