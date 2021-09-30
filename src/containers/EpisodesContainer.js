@@ -6,10 +6,13 @@ import EpisodesList from '../components/EpisodesList';
 const EpisodesContainer = (props) => {
     const allEpisodes = props.allEpisodes.map(epi => <EpisodesList key={epi.id} episode={epi} />)
     const episodeFromForm = props.allEpisodes.find(epi => epi.name.toLowerCase() === props.episodeName.toLowerCase())
-
+    
     return (
         <div>
-            {props.episodeName === '' ? "Submit the form to search for an episode or look through all the episodes below:" : <EpisodesList episode={episodeFromForm} />}
+            {props.episodeName === '' ? "Submit the form to search for an episode or look through all the episodes below:" : <div>
+                    {episodeFromForm ? <EpisodesList episode={episodeFromForm}/> : "That episode doesn't exist. Try again..."}
+                </div>
+            }
             <br />
             ___________________________________________________
             <br /><br />
