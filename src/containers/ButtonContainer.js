@@ -6,12 +6,11 @@ import { addFavorite, removeFavorite } from '../actions/EpisodeActions'
 
 const ButtonContainer = (props) => {
     const findFavorites = props.favorites.find(epi => epi.id === props.selectEpisode.id)
+    const buttonName = findFavorites ? "Remove From Favorites 💔" : "Add To Favorites ❤️"
 
     const handleClick = e => {     
         findFavorites ? props.removeFavorite(props.selectEpisode) : props.addFavorite(props.selectEpisode)
     }
-    
-    const buttonName = findFavorites ? "Remove From Favorites 💔" : "Add To Favorites ❤️"
     
     return (
         <div>
