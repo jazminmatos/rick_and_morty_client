@@ -20,7 +20,6 @@ class CharacterButtonContainer extends Component {
     }
 
     handleClick = e => {
-        console.log("GOAL", this.characterAllData())
         this.setState({
             showingCharacters: !this.state.showingCharacters
         })

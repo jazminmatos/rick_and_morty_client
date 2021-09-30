@@ -1,10 +1,20 @@
 import React from 'react';
 
 const Characters = (props) => {
-    console.log(props)
+    const { name, status, species, gender, image } = props.selectCharacter
+    
     return (
         <div>
-            Characters.js will display characters in a list
+            <img src={image} alt={name}></img>
+            <br />
+            Name: {name}
+            <br />
+            Status: {status}
+            <br />
+            Species: {species}
+            <br />
+            Gender: {gender}
+            <br />
         </div>
     );
 }
