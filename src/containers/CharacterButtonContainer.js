@@ -6,13 +6,12 @@ import Characters from '../components/Characters'
 import { fetchAllCharacters } from '../actions/CharacterActions';
 
 const CharacterButtonContainer = (props) => {
-    const characterUrls = props.selectEpisode.characters
+    const characterIds = props.selectEpisode.characters.map(charUrl => parseInt(charUrl.match(/\d+$/)[0], 10))
     
     const handleClick = e => {
-        // fetch from each character URL listed in episode.characters
-        // Can access specific episode via props.selectEpisode
-        // this.props.fetchCharacters()
-        console.log("CharacterBC", characterUrls)
+        // Retrieve characters from redux using characterIds - state.characters.characters
+        console.log(props.characters)
+        console.log("CharacterBC", characterIds)
     }
 
     return (
@@ -22,9 +21,15 @@ const CharacterButtonContainer = (props) => {
         </div>
     );
     // RENDER EITHER SHOW CHARACTERS OR HIDE CHARACTERS
-    // // Need to make it so that characters only show up if they match the episode they're in
 }
 
-export default connect(null, { fetchAllCharacters })(CharacterButtonContainer);
+const mapStateToProps = state => {
+    return {
+        characters: state.characters.characters
+    }
+}
 
-// 1. SHOULD PROBABLY DO FETCH REQUEST IN COMPONENTDIDMOUNT
+export default connect(mapStateToProps, { fetchAllCharacters })(CharacterButtonContainer);
+
+// This is reliant on whether or not I clicked the button, so I should use state in this
+

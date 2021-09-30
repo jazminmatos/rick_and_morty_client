@@ -15,9 +15,6 @@ class Favorites extends Component {
         if (this.props.favorites.length === 0) {
             return this.props.fetchFavorites()
         } 
-        // Retrieve all episodes' character arrays
-        // Compare all to get a unique list of urls (so there are no duplicates of a character)
-        // fetch all the characters from each episode
         // There are a total of 671 Rick and Morty episodes
         const characterIds = () => {
             const length = 671
@@ -28,9 +25,8 @@ class Favorites extends Component {
             const rangeString = numArray.join()
             return rangeString
         }
-        this.props.fetchAllCharacters(characterIds())
 
-        // Will need to check/manipulate my state.characters.characters in CharacterButtonContainer
+        this.props.fetchAllCharacters(characterIds())
     }
     
     render() {

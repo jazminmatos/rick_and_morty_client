@@ -7,7 +7,6 @@ export const characterReducer = (state = {characters: [], loading: false}, actio
                 loading: true
             }
         case 'FETCH_CHARACTERS':
-            debugger
             return {
                 ...state,
                 characters: action.payload, 
