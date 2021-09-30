@@ -11,7 +11,7 @@ class Episodes extends Component {
         episodeName: ''
     }
 
-    // callback method to transfer data from FormConatiner component to sibling - EpisodeContainer
+    // callback method to transfer data from FormContainer component to sibling - EpisodeContainer
     episodeNameQuery = (episodeFromForm) => {
         this.setState({
             episodeName: episodeFromForm
