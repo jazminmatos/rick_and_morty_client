@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Button from '../components/Button';
 import Characters from '../components/Characters'
-import { fetchCharacters } from '../actions/CharacterActions';
+import { fetchAllCharacters } from '../actions/CharacterActions';
 
 const CharacterButtonContainer = (props) => {
     const characterUrls = props.selectEpisode.characters
@@ -25,6 +25,6 @@ const CharacterButtonContainer = (props) => {
     // // Need to make it so that characters only show up if they match the episode they're in
 }
 
-export default connect(null, { fetchCharacters })(CharacterButtonContainer);
+export default connect(null, { fetchAllCharacters })(CharacterButtonContainer);
 
 // 1. SHOULD PROBABLY DO FETCH REQUEST IN COMPONENTDIDMOUNT

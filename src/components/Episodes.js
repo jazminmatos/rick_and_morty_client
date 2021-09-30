@@ -20,7 +20,7 @@ class Episodes extends Component {
     
     componentDidMount() {
         // There are a total of 41 Rick and Morty episodes
-        const AllEpisodesParameters = () => {
+        const allEpisodesIds = () => {
             const length = 41
             let numArray = []
             for (let i = 1; i <= length; i++) {
@@ -30,7 +30,7 @@ class Episodes extends Component {
             return rangeString
         }
 
-        this.props.fetchEpisodes(AllEpisodesParameters())
+        this.props.fetchEpisodes(allEpisodesIds())
         this.props.fetchFavorites()
     }
 

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import CharacterButtonContainer from '../containers/CharacterButtonContainer';
 import EpisodesList from './EpisodesList';
 import { fetchFavorites } from '../actions/EpisodeActions'
+import { fetchAllCharacters } from '../actions/CharacterActions'
 
 class Favorites extends Component {
     allFavorites = () => {
@@ -17,6 +18,17 @@ class Favorites extends Component {
         // Retrieve all episodes' character arrays
         // Compare all to get a unique list of urls (so there are no duplicates of a character)
         // fetch all the characters from each episode
+        // There are a total of 671 Rick and Morty episodes
+        const characterIds = () => {
+            const length = 671
+            let numArray = []
+            for (let i = 1; i <= length; i++) {
+                numArray.push(i)
+            }
+            const rangeString = numArray.join()
+            return rangeString
+        }
+        this.props.fetchAllCharacters(characterIds())
 
         // Will need to check/manipulate my state.characters.characters in CharacterButtonContainer
     }
@@ -36,4 +48,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchFavorites })(Favorites);
+export default connect(mapStateToProps, { fetchFavorites, fetchAllCharacters })(Favorites);
