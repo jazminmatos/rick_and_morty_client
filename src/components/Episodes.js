@@ -30,8 +30,13 @@ class Episodes extends Component {
             return rangeString
         }
 
-        this.props.fetchEpisodes(allEpisodesIds())
-        this.props.fetchFavorites()
+        if (this.props.episodes.length === 0) {
+            return this.props.fetchEpisodes(allEpisodesIds()) 
+        }
+
+        if (this.props.favorites.length === 0) {
+            return this.props.fetchFavorites()
+        }
     }
 
     render() {
@@ -46,7 +51,9 @@ class Episodes extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoading: state.episodes.loading
+        isLoading: state.episodes.loading,
+        episodes: state.episodes.episodes,
+        favorites: state.episodes.favorites
     }
 }
 
