@@ -1,7 +1,7 @@
-export const fetchEpisodes = (parameters) => {    
+export const fetchEpisodes = (episodeIds) => {    
     return dispatch => {
         dispatch({ type: 'LOADING_EPISODES' })
-        fetch('https://rickandmortyapi.com/api/episode/' + parameters)
+        fetch('https://rickandmortyapi.com/api/episode/' + episodeIds)
         .then(resp => resp.json())
         .then(episodes => dispatch({ type: 'FETCH_EPISODES', payload: episodes}))
     }
