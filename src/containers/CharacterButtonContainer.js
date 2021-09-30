@@ -7,7 +7,9 @@ import { fetchAllCharacters } from '../actions/CharacterActions';
 
 class CharacterButtonContainer extends Component {
     state = {
-
+        // false means that characters are NOT showing
+        // So, button should be named "show character" 
+        showingCharacters: false
     }
 
     characterIds = () => { 
@@ -18,13 +20,22 @@ class CharacterButtonContainer extends Component {
         // Retrieve characters from redux using characterIds - state.characters.characters
         console.log(this.props.characters)
         console.log("CharacterBC", this.characterIds())
+        this.setState({
+            showingCharacters: !this.state.showingCharacters
+        })
     }
+
+    buttonName = () => {
+        return this.state.showingCharacters ? "Hide Characters" : "Show Characters"
+    }
+        
     
     render() {
+
         return (
             <div>
-                <Button onClick={this.handleClick} buttonName={"Show Characters"}/>
-                <Characters /> {/* RENDER CHARACTERS COMPONENT IF I'VE CLICKED BUTTON */}
+                <Button onClick={this.handleClick} buttonName={this.buttonName()}/>
+                <Characters /> {/* RENDER CHARACTERS COMPONENT IF state.showingCharacters is true */}
             </div>
         );
     }
