@@ -7,7 +7,6 @@ export const fetchEpisodes = (episodeIds) => {
     }
 }
 
-// figure out how to 
 export const addFavorite = (selectEpisode) => {
     const configObj = {
         method: 'POST',

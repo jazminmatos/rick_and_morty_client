@@ -23,9 +23,6 @@ class FormContainer extends Component {
         this.setState({
             name: ''
         })
-        
-        // Check Redux store to see if episode exists
-        // send id number back to grand parent (Episodes)
     }
 
     render() {
