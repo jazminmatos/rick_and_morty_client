@@ -7,8 +7,6 @@ import { fetchAllCharacters } from '../actions/CharacterActions';
 
 class CharacterButtonContainer extends Component {
     state = {
-        // false means that characters are NOT showing
-        // So, button should be named "show character" 
         showingCharacters: false
     }
 
@@ -31,14 +29,14 @@ class CharacterButtonContainer extends Component {
     buttonName = () => {
         return this.state.showingCharacters ? "Hide Characters" : "Show Characters"
     }
-        
     
     render() {
+        const selectCharactersComponent = this.characterAllData().map(character => <div key={character.id}><Characters selectCharacter={character}/><br /></div>)
 
         return (
             <div>
                 <Button onClick={this.handleClick} buttonName={this.buttonName()}/>
-                {this.state.showingCharacters ? <Characters selectCharacters={this.characterAllData()}/> : null}
+                {this.state.showingCharacters ? <div>{selectCharactersComponent}</div> : null}
             </div>
         );
     }
