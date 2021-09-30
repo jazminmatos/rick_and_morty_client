@@ -38,11 +38,17 @@ class Episodes extends Component {
         return (
             <div>
                 <FormContainer episodeName={this.episodeNameQuery}/>
-                <EpisodesContainer episodeName={this.state.episodeName}/>
+                {this.props.isLoading ? "Loading episodes..." : <EpisodesContainer episodeName={this.state.episodeName}/>}
             </div>
         );
     }
 }
 
-export default connect(null, { fetchEpisodes, fetchFavorites })(Episodes);
+const mapStateToProps = state => {
+    return {
+        isLoading: state.episodes.loading
+    }
+}
+
+export default connect(mapStateToProps, { fetchEpisodes, fetchFavorites })(Episodes);
 

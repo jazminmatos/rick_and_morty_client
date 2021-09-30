@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ButtonContainer from '../containers/ButtonContainer'
+import EpisodeButtonContainer from '../containers/EpisodeButtonContainer'
 
 const EpisodesList = (props) => {
     const { id, name, air_date, episode} = props.episode
@@ -14,7 +14,7 @@ const EpisodesList = (props) => {
             Air Date: {air_date}
             <br />
             Season: {episode}
-            <ButtonContainer selectEpisode={props.episode}/>
+            <EpisodeButtonContainer selectEpisode={props.episode}/>
             <br /><br />
         </div>
     );

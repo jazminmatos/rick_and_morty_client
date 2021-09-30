@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Button from '../components/Button';
 import { addFavorite, removeFavorite } from '../actions/EpisodeActions'
 
-const ButtonContainer = (props) => {
+const EpisodeButtonContainer = (props) => {
     const findFavorites = props.favorites.find(epi => epi.id === props.selectEpisode.id)
     const buttonName = findFavorites ? "Remove From Favorites 💔" : "Add To Favorites ❤️"
 
@@ -25,6 +25,6 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addFavorite, removeFavorite })(ButtonContainer);
+export default connect(mapStateToProps, { addFavorite, removeFavorite })(EpisodeButtonContainer);
 
 
