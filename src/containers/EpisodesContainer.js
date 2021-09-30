@@ -9,10 +9,12 @@ const EpisodesContainer = (props) => {
     
     return (
         <div>
-            {props.episodeName === '' ? "Submit the form to search for an episode or look through all the episodes below:" : <div>
+            {props.episodeName === '' ? null : 
+                <div>
                     {episodeFromForm ? <EpisodesList episode={episodeFromForm}/> : "That episode doesn't exist. Try again..."}
                 </div>
             }
+            Submit the form to search for an episode or look through all the episodes below:
             <br />
             ___________________________________________________
             <br /><br />
