@@ -26,7 +26,11 @@ class Favorites extends Component {
             return rangeString
         }
 
-        this.props.fetchAllCharacters(characterIds())
+        // this.props.fetchAllCharacters(characterIds())
+
+        if (this.props.characters) {
+            return this.props.fetchAllCharacters(characterIds())
+        }
     }
     
     render() {
@@ -40,7 +44,8 @@ class Favorites extends Component {
 
 const mapStateToProps = state => {
     return {
-        favorites: state.episodes.favorites
+        favorites: state.episodes.favorites,
+        characters: state.characters.characters
     }
 }
 
