@@ -16,10 +16,13 @@ class CharacterButtonContainer extends Component {
         return this.props.selectEpisode.characters.map(charUrl => parseInt(charUrl.match(/\d+$/)[0], 10))
     }
 
+    characterAllData = () => {
+        const charObj = this.props.characters.filter(character => this.characterIds().includes(character.id))
+        return charObj
+    }
+
     handleClick = e => {
-        // Retrieve characters from redux using characterIds - state.characters.characters
-        console.log(this.props.characters)
-        console.log("CharacterBC", this.characterIds())
+        console.log("GOAL", this.characterAllData())
         this.setState({
             showingCharacters: !this.state.showingCharacters
         })
@@ -35,7 +38,7 @@ class CharacterButtonContainer extends Component {
         return (
             <div>
                 <Button onClick={this.handleClick} buttonName={this.buttonName()}/>
-                <Characters /> {/* RENDER CHARACTERS COMPONENT IF state.showingCharacters is true */}
+                {this.state.showingCharacters ? <Characters selectCharacters={this.characterAllData()}/> : null}
             </div>
         );
     }
