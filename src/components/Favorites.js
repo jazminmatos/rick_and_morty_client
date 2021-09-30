@@ -1,7 +1,3 @@
-// need to add componentDidMount to fetch from Rails backend
-
-
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -11,19 +7,21 @@ import { fetchFavorites } from '../actions/EpisodeActions'
 
 class Favorites extends Component {
     allFavorites = () => {
-        return this.props.favorites.map(epi => <div><EpisodesList key={epi.id} episode={epi} /><CharacterButtonContainer selectEpisode={epi}/><br /><br /></div>)
+        return this.props.favorites.map(epi => <div key={epi.id}><EpisodesList episode={epi} /><CharacterButtonContainer selectEpisode={epi}/><br /><br /></div>)
     }
 
     componentDidMount() {
-        // fetch all my favorites from Rails backend instead of using state but only if redux state is empty
         if (this.props.favorites.length === 0) {
             return this.props.fetchFavorites()
         } 
+        // Retrieve all episodes' character arrays
+        // Compare all to get a unique list of urls (so there are no duplicates of a character)
+        // fetch all the characters from each episode
+
+        // Will need to check/manipulate my state.characters.characters in CharacterButtonContainer
     }
     
     render() {
-        // const allFavorites = this.props.favorites.map(epi => <div><EpisodesList key={epi.id} episode={epi} /><CharacterButtonContainer selectEpisode={epi}/><br /><br /></div>)
-
         return (
             <div>
                 {this.props.favorites.length === 0 ? "You have no favorites yet...what are you waiting for?" : <div>{this.allFavorites()}</div>}
