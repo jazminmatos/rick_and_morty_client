@@ -1,26 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../components/Button';
 import Characters from '../components/Characters'
 import { fetchAllCharacters } from '../actions/CharacterActions';
 
-const CharacterButtonContainer = (props) => {
-    const characterIds = props.selectEpisode.characters.map(charUrl => parseInt(charUrl.match(/\d+$/)[0], 10))
-    
-    const handleClick = e => {
-        // Retrieve characters from redux using characterIds - state.characters.characters
-        console.log(props.characters)
-        console.log("CharacterBC", characterIds)
+class CharacterButtonContainer extends Component {
+    state = {
+
     }
 
-    return (
-        <div>
-            <Button onClick={handleClick} buttonName={"Show Characters"}/>
-            <Characters /> {/* RENDER CHARACTERS COMPONENT IF I'VE CLICKED BUTTON */}
-        </div>
-    );
-    // RENDER EITHER SHOW CHARACTERS OR HIDE CHARACTERS
+    characterIds = () => { 
+        return this.props.selectEpisode.characters.map(charUrl => parseInt(charUrl.match(/\d+$/)[0], 10))
+    }
+
+    handleClick = e => {
+        // Retrieve characters from redux using characterIds - state.characters.characters
+        console.log(this.props.characters)
+        console.log("CharacterBC", this.characterIds())
+    }
+    
+    render() {
+        return (
+            <div>
+                <Button onClick={this.handleClick} buttonName={"Show Characters"}/>
+                <Characters /> {/* RENDER CHARACTERS COMPONENT IF I'VE CLICKED BUTTON */}
+            </div>
+        );
+    }
 }
 
 const mapStateToProps = state => {
@@ -31,5 +38,5 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, { fetchAllCharacters })(CharacterButtonContainer);
 
-// This is reliant on whether or not I clicked the button, so I should use state in this
-
+// This is reliant on whether or not I clicked the button, so I should use local state in this
+// ButtonContainer is reliant on whether or not the user has favorites, so I use global state in that
