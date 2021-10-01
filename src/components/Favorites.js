@@ -26,8 +26,6 @@ class Favorites extends Component {
             return rangeString
         }
 
-        // this.props.fetchAllCharacters(characterIds())
-
         if (this.props.characters.length === 0) {
             return this.props.fetchAllCharacters(characterIds())
         }

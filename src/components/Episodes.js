@@ -18,7 +18,7 @@ class Episodes extends Component {
         })
     }
     
-    componentDidMount() {
+    componentDidMount() {        
         // There are a total of 41 Rick and Morty episodes
         const allEpisodesIds = () => {
             const length = 41
@@ -31,11 +31,9 @@ class Episodes extends Component {
         }
 
         if (this.props.episodes.length === 0) {
-            return this.props.fetchEpisodes(allEpisodesIds()) 
-        }
-
-        if (this.props.favorites.length === 0) {
-            return this.props.fetchFavorites()
+            const episodes = this.props.fetchEpisodes(allEpisodesIds())
+            const favorites = this.props.fetchFavorites()
+            return episodes && favorites
         }
     }
 
