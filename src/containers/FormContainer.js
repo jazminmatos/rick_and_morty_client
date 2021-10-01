@@ -28,12 +28,7 @@ class FormContainer extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <br />
-                    <label>Episode Name:</label>
-                    <input type='text' value={this.state.name} onChange={this.handleChange} name="name"/>
-                    <input type='submit' value="Submit"/>
-                </form>
+                <Form onSubmit={this.handleSubmit} value={this.state.name} onChange={this.handleChange}/>
             </div>
         )
     }

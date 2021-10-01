@@ -1,13 +1,12 @@
 import React from 'react';
 
 const Form = (props) => {
-    debugger
     return (
         <div>
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={props.onSubmit}>
                     <br />
                     <label>Episode Name:</label>
-                    <input type='text' value={props.state.name} onChange={props.handleChange} name="name"/>
+                    <input type='text' value={props.value} onChange={props.onChange} name="name"/>
                     <br /><br />
                     <input type='submit' value="Submit"/>
                 </form>
