@@ -6,6 +6,8 @@ import EpisodesList from './EpisodesList';
 import { fetchFavorites } from '../actions/EpisodeActions'
 import { fetchAllCharacters } from '../actions/CharacterActions'
 
+import '../css/Background.css'
+
 class Favorites extends Component {
     allFavorites = () => {
         return this.props.favorites.map(epi => <div key={epi.id}><EpisodesList episode={epi} /><CharacterButtonContainer selectEpisode={epi}/><br /><br /></div>)
@@ -33,7 +35,7 @@ class Favorites extends Component {
     
     render() {
         return (
-            <div>
+            <div className={"background"}>
                 {this.props.favorites.length === 0 ? "You have no favorites yet...what are you waiting for?" : <div>{this.allFavorites()}</div>}
             </div>
         );

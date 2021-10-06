@@ -5,6 +5,7 @@ import EpisodesContainer from '../containers/EpisodesContainer';
 import { connect } from 'react-redux';
 import { fetchEpisodes, fetchFavorites } from '../actions/EpisodeActions'
 
+import '../css/Background.css'
 
 class Episodes extends Component {
     state = {
@@ -39,7 +40,7 @@ class Episodes extends Component {
 
     render() {
         return (
-            <div>
+            <div className={"background"}>
                 <FormContainer episodeName={this.episodeNameQuery}/>
                 {this.props.isLoading ? "Loading episodes..." : <EpisodesContainer episodeName={this.state.episodeName}/>}
             </div>

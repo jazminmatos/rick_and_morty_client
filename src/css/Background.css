@@ -1,0 +1,6 @@
+.background {
+  background-image: url(http://localhost:3001/portal.png);
+  background-repeat: repeat-y;
+  background-position: center;
+  background-size: contain;
+}
