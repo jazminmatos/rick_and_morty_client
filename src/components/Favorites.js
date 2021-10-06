@@ -25,10 +25,14 @@ class Favorites extends Component {
             return rangeString
         }
 
-        if (this.props.favorites.length === 0) {
+        if (this.props.characters.length === 0) {
             const faves = this.props.fetchFavorites()
             const chars = this.props.fetchAllCharacters(characterIds())
-            return faves && chars
+            if (this.props.favorites.length === 0) {
+                return faves && chars
+            } else {
+                return chars
+            }
         } 
     }
     
