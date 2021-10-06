@@ -6,11 +6,13 @@ import EpisodesList from './EpisodesList';
 import { fetchFavorites } from '../actions/EpisodeActions'
 import { fetchAllCharacters } from '../actions/CharacterActions'
 
+import LikeCounter from './LikeCounter'
+
 import '../css/Background.css'
 
 class Favorites extends Component {
     allFavorites = () => {
-        return this.props.favorites.map(epi => <div key={epi.id}><EpisodesList episode={epi} /><CharacterButtonContainer selectEpisode={epi}/><br /><br /></div>)
+        return this.props.favorites.map(epi => <div key={epi.id}><EpisodesList episode={epi} /><CharacterButtonContainer selectEpisode={epi}/><LikeCounter /><br /><br /></div>)
     }
 
     componentDidMount() {
@@ -28,6 +30,7 @@ class Favorites extends Component {
         if (this.props.characters.length === 0) {
             const faves = this.props.fetchFavorites()
             const chars = this.props.fetchAllCharacters(characterIds())
+            
             if (this.props.favorites.length === 0) {
                 return faves && chars
             } else {
