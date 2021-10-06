@@ -1,12 +1,14 @@
 import React from 'react';
 
+import '../css/Character.css'
+
 const Characters = (props) => {
     const { name, status, species, gender, image } = props.selectCharacter
     
     return (
-        <div>
+        <div className={"character"}>
             <img src={image} alt={name}></img>
-            <br />
+            <br /><br />
             Name: {name}
             <br />
             Status: {status}

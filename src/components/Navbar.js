@@ -6,15 +6,15 @@ import '../css/NavBar.css'
 const NavBar = () => {
     return (
         <div className={"navbar"}>
-            <NavLink exact activeStyle={{color: '#009fb7'}} to='/' className="navbarText">
+            <NavLink exact activeStyle={{color: '#D1DB4A'}} to='/' className="navbarText">
                 Home
             </NavLink>
 
-            <NavLink exact activeStyle={{color: '#009fb7'}} to='/episodes' className="navbarText">
+            <NavLink exact activeStyle={{color: '#D1DB4A'}} to='/episodes' className="navbarText">
                 Episodes
             </NavLink>
 
-            <NavLink exact activeStyle={{color: '#009fb7'}} to='/favorites' className="navbarText">
+            <NavLink exact activeStyle={{color: '#D1DB4A'}} to='/favorites' className="navbarText">
                 Favorites
             </NavLink>
         </div>
