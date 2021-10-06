@@ -1,0 +1,7 @@
+.episode {
+  border: solid;
+  display: inline-block;
+  margin: 25;
+  padding: 25;
+  text-align: center;
+}
