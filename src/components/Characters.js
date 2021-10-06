@@ -7,8 +7,9 @@ const Characters = (props) => {
     
     return (
         <div className={"character"}>
-            <img src={image} alt={name}></img>
-            <br /><br />
+            <br/>
+            <img src={image} alt={name} className={"image"}></img>
+            <br />
             Name: {name}
             <br />
             Status: {status}

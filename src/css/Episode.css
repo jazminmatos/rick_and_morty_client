@@ -1,9 +1,10 @@
 .episode {
   border: solid;
   color: #173f44;
-  display: inline-block;
-  margin: 25;
+  display: inline-grid;
+  margin: 10;
   padding: 25;
   height: 150;
   width: 200;
+  border-radius: 10px;
 }

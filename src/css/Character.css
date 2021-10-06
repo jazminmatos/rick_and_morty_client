@@ -1,9 +1,17 @@
 .character {
   border: solid;
-  display: inline-block;
-  margin: 25;
+  display: inline-grid;
+  border-radius: 10px;
+  color: #173f44;
   padding: 25;
-  height: 400;
-  width: 300;
+  height: 250;
+  width: 200;
   text-align: center;
+}
+
+.image {
+  margin: auto;
+  max-height: 120px;
+  width: auto;
+  border-radius: 25%;
 }
